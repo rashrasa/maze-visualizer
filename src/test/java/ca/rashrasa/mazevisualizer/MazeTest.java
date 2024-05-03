@@ -8,6 +8,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class MazeTest {
     Maze maze;
@@ -25,8 +26,8 @@ public class MazeTest {
                 2,
                 new ConfigEntry[]{new ConfigEntry(true,9)}
         ));
-        System.out.println(this.maze);
         assertFalse(this.maze.isBlocked(new Position(2,2)));
+        assertTrue(this.maze.isBlocked(new Position(0,0)));
     }
 
 }

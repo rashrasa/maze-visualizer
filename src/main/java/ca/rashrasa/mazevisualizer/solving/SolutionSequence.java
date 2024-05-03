@@ -1,23 +1,37 @@
 package ca.rashrasa.mazevisualizer.solving;
 
-public class SolutionSequence {
-    public SolutionSnapshot get(int i){
-        return null;
-    }
+import ca.rashrasa.mazevisualizer.building.Path;
 
-    public int size(){
-        return 0;
+import java.util.ArrayList;
+import java.util.List;
+
+public class SolutionSequence {
+    private List<SolutionSnapshot> sequence;
+    private Path shortestPath;
+
+    public SolutionSequence(){
+        this.sequence=new ArrayList<>();
+        this.shortestPath=new Path();
     }
 
     public void add(SolutionSnapshot s){
-
+        sequence.add(s);
     }
 
-    public void add(SolutionSnapshot s, int i){
-
+    public void setShortestPath(Path p){
+        this.shortestPath=p;
     }
 
-    public void remove(int i){
-
+    public Path getShortestPath(){
+        return this.shortestPath;
     }
+
+    public boolean isEmpty(){
+        return sequence.isEmpty();
+    }
+
+    public int size(){
+        return sequence.size();
+    }
+
 }

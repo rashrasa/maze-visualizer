@@ -69,12 +69,12 @@ public class Maze {
         return height;
     }
 
-    public int getStart() {
-        return start;
+    public Position getStart() {
+        return new Position(0, start);
     }
 
-    public int getEnd() {
-        return end;
+    public Position getEnd() {
+        return new Position(width-1, end);
     }
 
     public String getConfiguration(){
@@ -89,6 +89,10 @@ public class Maze {
         }
         return blocked;
     }
+    public boolean isInBounds(Position p){
+        return p.x()>=0 && p.x()<width && p.y()>=0 && p.y()<height;
+    }
+
     public String toString(){
         StringBuilder mazeString = new StringBuilder();
         for(int i=0; i<isOpen.length;i++){

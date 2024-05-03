@@ -14,7 +14,13 @@ public class Path {
         this.path=new ArrayList<>();
     }
 
-    public void append(Position p){
+    /**
+     *
+     * @param p Position to append.
+     *
+     * @return Path object (itself).
+     */
+    public Path append(Position p){
         if (this.path.isEmpty()){
             this.path.add(p);
         }
@@ -24,6 +30,12 @@ public class Path {
         else{
             throw new IllegalArgumentException("Cannot append a position which isn't adjacent to the previous position in the sequence.");
         }
+
+        return this;
+    }
+
+    public Position get(int i){
+        return this.path.get(i);
     }
 
     public Position remove(){
@@ -39,5 +51,17 @@ public class Path {
         }
         s.replace(s.length()-2,s.length(), "}");
         return s.toString();
+    }
+
+    public int size() {
+        return this.path.size();
+    }
+
+    public Path copy() {
+        Path q = new Path();
+        for (Position p: this.path){
+            q.append(p);
+        }
+        return q;
     }
 }

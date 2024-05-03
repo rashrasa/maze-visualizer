@@ -2,16 +2,38 @@ package ca.rashrasa.mazevisualizer.solving;
 
 import ca.rashrasa.mazevisualizer.building.Position;
 
-public class SolutionSnapshot {
+import java.util.HashSet;
+import java.util.Set;
 
-    public Position[] getNotExplored(){
-        return null;
+public class SolutionSnapshot {
+    private Set<Position> exploring;
+    private Set<Position> explored;
+
+    public SolutionSnapshot(){
+        this.exploring=new HashSet<>();
+        this.explored=new HashSet<>();
     }
-    public Position[] getExploring(){
-        return null;
+
+    public SolutionSnapshot(Set<Position>explored, Set<Position> exploring){
+        this.exploring=exploring;
+        this.explored=explored;
     }
-    public Position[] getExplored(){
-        return null;
+
+    public void setExploring(Position p){
+        this.explored.remove(p);
+        this.exploring.add(p);
+    }
+
+    public void setExplored(Position p){
+        this.exploring.remove(p);
+        this.explored.add(p);
+    }
+
+    public Set<Position> getExploring(){
+        return exploring;
+    }
+    public Set<Position> getExplored(){
+        return explored;
     }
 
 }
