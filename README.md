@@ -1,2 +1,3 @@
 # Maze Visualizer
-Program will be able to generate mazes and will be able to visualize solving them
+Create and generate mazes of any size. 
+Visualize path finding algorithms such as breadth-first search.
