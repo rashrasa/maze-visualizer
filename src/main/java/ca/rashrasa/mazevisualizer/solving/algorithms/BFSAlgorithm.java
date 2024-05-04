@@ -33,7 +33,10 @@ public class BFSAlgorithm implements SearchAlgorithm{
             }
 
         }
-
+        if (seq.getShortestPath() == null || seq.getShortestPath().size()==0){
+            seq.setShortestPath(new Path().append(maze.getStart()));
+            System.out.println("No path found.");
+        }
         return seq;
     }
 

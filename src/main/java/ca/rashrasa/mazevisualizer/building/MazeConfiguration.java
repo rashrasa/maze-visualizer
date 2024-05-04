@@ -36,11 +36,13 @@ public class MazeConfiguration {
         this.startY=Integer.parseInt(config[2]);
         this.endY=Integer.parseInt(config[3]);
 
+        if(startY<=0 || startY>=height-1 || endY<=0 || endY>=height-1){
+            throw new IllegalArgumentException("Start/End positions must be within map boundaries and not be on the north or south borders.");
+        }
 
         String [] ident;
         //for each identifier ({B,X} or {O,Y})
         for(int i =4; i<config.length; i++){
-            System.out.println("Parsing "+config[i]);
             ident = config[i].split("#");
             switch (ident[0]) {
                 case "B" -> mazeEntries.add(new ConfigEntry(false, Integer.parseInt(ident[1])));

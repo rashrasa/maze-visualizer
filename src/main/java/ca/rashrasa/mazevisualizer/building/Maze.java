@@ -1,7 +1,5 @@
 package ca.rashrasa.mazevisualizer.building;
 
-import java.util.Arrays;
-
 /**
  * Immutable n*m-sized maze implemented as a boolean 2D array.
  * Contains one opening on the West and East borders and
@@ -43,7 +41,6 @@ public class Maze {
         int currentElement = 1;
         int numPositionsProvided = 0;
         for (ConfigEntry entry: configuration.getMazeEntries()){
-            System.out.println(entry.toString());
             for(int k=0; k<entry.getDist(); k++){
                 this.isOpen[currentLine][currentElement]=entry.isOpen();
                 currentElement++;

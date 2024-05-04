@@ -17,7 +17,8 @@ public class Main {
                         2,
                         2,
                         new ConfigEntry[]{
-                                new ConfigEntry(true,3),
+                                new ConfigEntry(false,1),
+                                new ConfigEntry(true,2),
                                 new ConfigEntry(false,1),
                                 new ConfigEntry(true,1),
                                 new ConfigEntry(false,1),
@@ -30,10 +31,10 @@ public class Main {
                         }
                         )
         );
+        System.out.println(maze);
         SearchAlgorithm runner = new BFSAlgorithm();
         SolutionSequence search = runner.getSolution(maze);
         System.out.println("Path: " + search.getShortestPath().toString());
-        System.out.println(maze);
         System.out.println("Done");
     }
 }
