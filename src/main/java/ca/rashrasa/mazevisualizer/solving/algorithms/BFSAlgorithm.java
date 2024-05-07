@@ -17,8 +17,11 @@ public class BFSAlgorithm implements SearchAlgorithm{
         searchQueue.add(new Path().append(maze.getStart()));
         boolean foundEnd = false;
 
+        //start BFS search
         while(!foundEnd && !searchQueue.isEmpty()){
             Path current = searchQueue.removeFirst();
+
+            //check all adjacent
             for(Position p: current.get(current.size()-1).getAdjacent()){
                 seq.add(new SolutionSnapshot(marked, Set.of(p)));
                 if(maze.isInBounds(p) && !containsPosition(marked, p) && !maze.isBlocked(p)){

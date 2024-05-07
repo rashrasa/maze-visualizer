@@ -27,7 +27,7 @@ public class Main {
                                 new ConfigEntry(true,1),
                                 new ConfigEntry(false,1),
                                 new ConfigEntry(true,4),
-                                new ConfigEntry(false,2)
+                                new ConfigEntry(false,3)
                         }
                         )
         );

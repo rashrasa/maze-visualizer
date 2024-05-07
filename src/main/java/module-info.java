@@ -1,7 +1,6 @@
 module ca.rashrasa.mazevisualizer {
     requires javafx.controls;
     requires javafx.fxml;
-    requires org.apache.logging.log4j;
 
     opens ca.rashrasa.mazevisualizer to javafx.fxml;
     exports ca.rashrasa.mazevisualizer;

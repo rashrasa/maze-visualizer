@@ -53,8 +53,11 @@ public class Maze {
         }
 
         //maze requires info for (width-2)*(height-2) positions (all, excluding the borders)
-        if(numPositionsProvided!= (width-2)*(height-2)){
+        if(numPositionsProvided< (width-2)*(height-2)){
             throw new IllegalArgumentException("Not enough information provided to generate maze.");
+        }
+        else if (numPositionsProvided > (width-2)*(height-2)){
+            throw new IllegalArgumentException("Too much information provided for generating maze.");
         }
     }
 
@@ -77,6 +80,7 @@ public class Maze {
     public String getConfiguration(){
         return this.configuration;
     }
+
     public boolean isBlocked(Position p){
         boolean blocked;
         try{
@@ -86,6 +90,7 @@ public class Maze {
         }
         return blocked;
     }
+
     public boolean isInBounds(Position p){
         return p.x()>=0 && p.x()<width && p.y()>=0 && p.y()<height;
     }
